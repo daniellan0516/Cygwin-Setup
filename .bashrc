@@ -96,9 +96,9 @@ gfa() {
   [ $files = "" ] && 
   echo "沒有異動的檔案" && return
 
-  git status -s | awk '{print $NF}' | fzf -m --ansi --reverse --preview '/usr/libexec/git-core/git diff --color=always {}' > .tmpfile
+  git status -s | awk '{print $NF}' | fzf -m --ansi --reverse --preview '/usr/libexec/git-core/git diff --color=always {} || cat {}' > .tmpfile
   
   sed -i ':a;N;$!ba;s/\n/ /g' .tmpfile
-  git add "$(cat .tmpfile)"
+  git add $(cat .tmpfile)
   rm -rf .tmpfile
 }
