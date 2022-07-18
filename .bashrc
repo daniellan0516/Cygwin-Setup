@@ -2,12 +2,13 @@ source /usr/share/bash-completion/bash_completion
 
 # Path to your oh-my-zsh installation.
 export STARSHIP_CONFIG=C:\\cygwin\\root\\home\\azure\\.config\\starship.toml
+export PATH=/C/Program\ Files\ \(x86\)/Microsoft\ Office/Office16:$PATH
 export PATH=/opt/fd/8.4.0:$PATH
-#export PATH=/opt/vscode/1.69.1:$PATH
+export PATH=/opt/git/bin:$PATH
 export PATH=/opt/fzf/0.30.0:$PATH
 export PATH=/opt/sudo/0.2020.01.26:$PATH
 export PATH=/opt/PowerShell-7.2.5-win-x64:$PATH
-export PATH=/opt/node-v16.15.1-win-x64:$PATH
+export PATH=/opt/node-v16.15.0-win-x64:$PATH
 export PATH=/opt/eclipse-2022-06/:$PATH
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
@@ -39,6 +40,10 @@ alias l=ls
 alias mans=tldr
 alias reboot='shudown -r'
 alias poweroff='shutdown -s'
+alias word='/C/Program\ Files\ \(x86\)/Microsoft\ Office/Office16/winword'
+alias excel='/C/Program\ Files\ \(x86\)/Microsoft\ Office/Office16/excel'
+alias ppt='/C/Program\ Files\ \(x86\)/Microsoft\ Office/Office16/powerpnt'
+alias npm='npm.cmd'
 
 cd() {
   if (( $# == 0 )); then
