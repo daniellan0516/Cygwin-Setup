@@ -88,15 +88,14 @@ vim() {
 }
 
 gfa() {
-  preview="git diff --color=always {}"
-  files="$(git diff --name-only 2>/dev/null)" 
+  files="$(/usr/libexec/git-core/git diff --name-only 2>/dev/null)" 
 
   [ "$(git status 2>/dev/null)" = "" ] &&
   echo "非git資料夾" && return
   
   [ $files = "" ] && 
-  echo "No file changed" && return
+  echo "沒有異動的檔案" && return
 
-  fzf -m --ansi --reverse --preview $preview $files
+  git add "$(git diff --name-only 2>/dev/null | fzf -m --ansi --reverse --preview '/usr/libexec/git-core/git diff --color=always {}')"
   
 }
