@@ -3,7 +3,7 @@ source /usr/share/bash-completion/bash_completion
 # Path to your oh-my-zsh installation.
 export STARSHIP_CONFIG=C:\\cygwin\\root\\home\\azure\\.config\\starship.toml
 export PATH=/opt/fd/8.4.0:$PATH
-export PATH=/opt/vscode/1.69.0:$PATH
+#export PATH=/opt/vscode/1.69.1:$PATH
 export PATH=/opt/fzf/0.30.0:$PATH
 export PATH=/opt/sudo/0.2020.01.26:$PATH
 export PATH=/opt/PowerShell-7.2.5-win-x64:$PATH
@@ -37,6 +37,8 @@ alias ll='ls -al'
 alias ltr='ls -ltr'
 alias l=ls
 alias mans=tldr
+alias reboot='shudown -r'
+alias poweroff='shutdown -s'
 
 cd() {
   if (( $# == 0 )); then
@@ -101,4 +103,15 @@ gfa() {
   sed -i ':a;N;$!ba;s/\n/ /g' .tmpfile
   git add $(cat .tmpfile)
   rm -rf .tmpfile
+}
+
+
+code() {
+  if [ "$@" ]; then
+    nohup /opt/vscode/1.69.1/code $@ 1>/dev/null 2>/dev/null & 
+    return
+  else
+    nohup /opt/vscode/1.69.1/code ./ 1>/dev/null 2>/dev/null & 
+    return
+  fi
 }
